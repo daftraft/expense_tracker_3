@@ -5,7 +5,6 @@
 //  Created by Jamie Vick on 27/01/2017.
 //  Copyright © 2017 Jamie Vick. All rights reserved.
 //
-// Meaningless comment
 
 import UIKit
 import CoreData
