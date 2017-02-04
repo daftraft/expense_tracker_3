@@ -16,17 +16,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Main Tab Bar
         let tabBarController = self.window!.rootViewController as! UITabBarController
         
+        // Expenses SplitViewController
         let splitViewController = tabBarController.viewControllers?[0] as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         splitViewController.delegate = self
-
         let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
         let controller = masterNavigationController.topViewController as! MasterViewController
         controller.managedObjectContext = self.persistentContainer.viewContext
+
+        // Categories SplitViewController
+//        let splitViewControllerCats = tabBarController.viewControllers?[1] as! UISplitViewController
+//        let navigationControllerCats = splitViewControllerCats.viewControllers[splitViewControllerCats.viewControllers.count-1] as! UINavigationController
+//        navigationControllerCats.topViewController!.navigationItem.leftBarButtonItem = splitViewControllerCats.displayModeButtonItem
+//        splitViewControllerCats.delegate = self
+//        let masterNavigationControllerCats = splitViewControllerCats.viewControllers[0] as! UINavigationController
+//        let controllerCats = masterNavigationControllerCats.topViewController as! MasterViewController
+//        controllerCats.managedObjectContext = self.persistentContainer.viewContext
 
         return true
     }
